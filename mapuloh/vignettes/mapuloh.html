@@ -87,9 +87,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Functions usage</h2>
 <div id="addres_lookup" class="section level3">
 <h3>addres_lookup</h3>
-<p>address_lookup is a function that provides the user the address of a given a set of coordinates The funtion uses the google geocode API to retrieve the result. The main parameter.</p>
+<p>address_lookup is a function that provides the user with the address of a given a set of coordinates The funtion uses the google geocode API to retrieve the result. The main parameter.</p>
 <p>The only input is <strong>latlong</strong>, a character string that includes the latitude and the longitude.</p>
-<p>It is returned A dataframe cointaining Full address names as well as the coordinates</p>
+<p>The function returns a dataframe cointaining Full address names as well as the coordinates:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mapuloh)
 <span class="kw">address_lookup</span>(<span class="st">&quot;41.40450 2.17429&quot;</span>)</code></pre></div>
 <pre><code>## Loading required package: httr</code></pre>
@@ -106,14 +106,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 10                                 Catalonia, Spain 41.59116  1.520862
 ## 11                                            Spain 40.46367 -3.749220</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">address_lookup</span>(<span class="st">&quot;24.83504 118.608&quot;</span>)</code></pre></div>
-<pre><code>##                                                                                                    Full_address
-## 1 Hua Hua Gong Zi ( Feng Sheng Gong Ye Da Sha Xi Bei ), Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
-## 2                                        66 Dong Da Lu, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
-## 3                                                                             Jinjiang, Quanzhou, Fujian, China
-## 4                                                                                       Quanzhou, Fujian, China
-## 5                                                                     Jinjiang, Quanzhou, Fujian, China, 362200
-## 6                                                                                                 Fujian, China
-## 7                                                                                                         China
+<pre><code>##                                                                                                      Full_address
+## 1 Hua Hua Gong Zi （ Feng Sheng Gong Ye Da Sha Xi Bei ）, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
+## 2                                          66 Dong Da Lu, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
+## 3                                                                               Jinjiang, Quanzhou, Fujian, China
+## 4                                                                                         Quanzhou, Fujian, China
+## 5                                                                       Jinjiang, Quanzhou, Fujian, China, 362200
+## 6                                                                                                   Fujian, China
+## 7                                                                                                           China
 ##        lat      lng
 ## 1 24.83504 118.6080
 ## 2 24.83489 118.6084
@@ -125,9 +125,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="coord_lookup" class="section level3">
 <h3>coord_lookup</h3>
-<p>The ‘coord_lookup’ function is a function that provides the user the coordinates of a given address. The funtion uses the google geocode API to retrieve the result.</p>
-<p>The only used is <em>address</em>, a character string that includes address components.</p>
-<p>If the address has partial match, different locations with their full names and coordinates will be retrieved as a dataframe</p>
+<p>The ‘coord_lookup’ function is a function that provides the user with the coordinates of a given address. The function uses the google geocode API to retrieve the result.</p>
+<p>The input needed is <strong>address</strong>, a character string that includes address components.</p>
+<p>If the address has partial match, different locations with their full names and coordinates will be retrieved as a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mapuloh)
 <span class="kw">coord_lookup</span>(<span class="st">&quot;Sagrada Familia&quot;</span>)</code></pre></div>
 <pre><code>##                                                      Full_address
@@ -137,8 +137,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 1 -19.90635 -43.92438
 ## 2  41.40450   2.17429</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coord_lookup</span>(<span class="st">&quot;Mansion playboy&quot;</span>)</code></pre></div>
-<pre><code>##                                                                                                    Full_address
-## 1 Hua Hua Gong Zi ( Feng Sheng Gong Ye Da Sha Xi Bei ), Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
+<pre><code>##                                                                                                      Full_address
+## 1 Hua Hua Gong Zi （ Feng Sheng Gong Ye Da Sha Xi Bei ）, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
 ##        lat     lng
 ## 1 24.83504 118.608</code></pre>
 </div>
