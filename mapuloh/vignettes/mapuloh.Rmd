@@ -1,0 +1,53 @@
+---
+title: "Mapuloh"
+author: "Arian Barakat, Rebin Hosini, Carles Sans"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+##Introduction
+The mapuloh package is connected with the google geocode API to provide with location and and coordination of the information provided using two main functions: 
+
+
+- address_lookup
+- coord_lookup
+
+To use both functions, it is **required to have the package httr installed** 
+
+## Functions usage
+
+###addres_lookup
+
+address_lookup is a function that provides the user with the address of a given a set of coordinates The funtion uses the google geocode API to retrieve the result. The main parameter. 
+
+The only input is **latlong**, a character string that includes the latitude and the longitude.
+
+The function returns a dataframe cointaining Full address names as well as the coordinates:
+
+```{r, fig.show='hold'}
+library(mapuloh)
+address_lookup("41.40450 2.17429")
+address_lookup("24.83504 118.608")
+
+```
+
+
+###coord_lookup
+The 'coord_lookup' function is a function that provides the user with the coordinates of a given address. The function uses the google geocode API to retrieve the result.
+
+The input needed is **address**, a character string that includes address components.
+
+If the address has partial match, different locations with their full names and  coordinates will be retrieved as a dataframe:
+
+```{r, fig.show='hold'}
+library(mapuloh)
+coord_lookup("Sagrada Familia")
+
+coord_lookup("Mansion playboy")
+
+```
+
+
