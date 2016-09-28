@@ -41,6 +41,10 @@ coord_lookup <- function(address = NULL){
 
     rownames(res_df) <- NULL
 
+    if(nrow(res_df) == 0){
+      stop("No match found")
+    }
+
     return(res_df)
   }
 
