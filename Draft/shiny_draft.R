@@ -23,11 +23,13 @@ ui <- fluidPage(
                   c("Standard" = "OpenStreetMap.Mapnik",
                     "Satellite" = "Esri.WorldImagery")),
       br()
-      )),
+      ),
+      br(),
+      br(),
+      tableOutput("mytable")),
 
     mainPanel(
-      leafletOutput("mymap", height = 700),
-      tableOutput("mytable")
+      leafletOutput("mymap", height = 700)
     )
   ))
 
@@ -60,7 +62,7 @@ server <- function(input,output){
         addProviderTiles(input$maptype,
                          options = providerTileOptions(noWrap = TRUE)
         ) %>%
-        addMarkers(data = points, icon = id )
+        addMarkers(data = points, popup = id[,1])
 
     } else {
       points <- address_lookup(latlong = input$long)[c("lat","lng")]
@@ -71,7 +73,7 @@ server <- function(input,output){
         addProviderTiles(input$maptype,
                          options = providerTileOptions(noWrap = TRUE)
         ) %>%
-        addMarkers(data = points, icon = id )
+        addMarkers(data = points, popup = id[,1]  )
 
     }
   })

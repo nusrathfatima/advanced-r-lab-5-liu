@@ -15,6 +15,10 @@ address_lookup <- function(latlong = NULL){
     stop("Use character values")
   }
 
+  if(!grepl("[:digits:]",latlong)){
+    stop("Use digits")
+  }
+
   #Creating query and using GET verb
   latlong <- gsub("[[:space:]]",",",latlong)
   url <- "https://maps.googleapis.com/maps/api/geocode/json?latlng="
@@ -40,6 +44,10 @@ address_lookup <- function(latlong = NULL){
                          stringsAsFactors = FALSE)
 
     rownames(res_df) <- NULL
+
+    if(nrow(res_df) == 0){
+      stop("No match found")
+    }
 
     return(res_df)
   }
