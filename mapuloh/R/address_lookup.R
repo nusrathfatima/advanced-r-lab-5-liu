@@ -15,7 +15,7 @@ address_lookup <- function(latlong = NULL){
     stop("Use character values")
   }
 
-  if(!grepl("[:digits:]",latlong)){
+  if(!grepl("[[:digit:]]|[[:punct:]]",latlong)){
     stop("Use digits")
   }
 
