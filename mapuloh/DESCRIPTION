@@ -9,3 +9,4 @@ Description: A package that uses a Shiny application that is build on a google
     maps API
 License: GPL
 RoxygenNote: 5.0.1
+Suggests: testthat
