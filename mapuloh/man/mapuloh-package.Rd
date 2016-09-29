@@ -8,11 +8,7 @@
 \description{
 \packageDescription{mapuloh}
 }
-\details{
 
-The DESCRIPTION file:
-\packageDESCRIPTION{mapuloh}
-\packageIndices{mapuloh}}
 \author{
 \packageAuthor{mapuloh}
 

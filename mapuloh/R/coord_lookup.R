@@ -7,6 +7,10 @@
 #'
 #' @return A dataframe cointaining Full address names as well as the coordinates
 #'
+#' @examples
+#' coord_lookup(address = "Mäster Mattias väg, Linköping")
+#'
+#'
 #' @export
 coord_lookup <- function(address = NULL){
   require("httr")

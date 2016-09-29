@@ -16,4 +16,9 @@ A dataframe cointaining Full address names as well as the coordinates
 The 'coord_lookup' function is a function that provides the user the coordinates of a given
 address. The funtion uses the google geocode API to retrieve the result.
 }
+\examples{
+coord_lookup(address = "Mäster Mattias väg, Linköping")
+
+
+}
 

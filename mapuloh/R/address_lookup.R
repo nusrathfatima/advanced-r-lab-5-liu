@@ -7,6 +7,9 @@
 #'
 #' @return A dataframe cointaining Full address names as well as the coordinates
 #'
+#' @examples
+#' address_lookup(latlong = "58.39701, 15.57415")
+#'
 #' @export
 address_lookup <- function(latlong = NULL){
   require("httr")
