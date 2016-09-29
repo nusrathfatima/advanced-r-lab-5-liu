@@ -8,5 +8,6 @@ Maintainer: Arian Barakat <arianbarakat@gmail.com>
 Description: A package that uses google geocode API to retrieve address or coordinates
 License: GPL
 RoxygenNote: 5.0.1
-Suggests: knitr,rmarkdown,testthat
+Imports: httr
+Suggests: knitr,rmarkdown,testthat, httr
 VignetteBuilder: knitr

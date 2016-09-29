@@ -12,7 +12,7 @@
 
 <meta name="author" content="Arian Barakat, Rebin Hosini, Carles Sans" />
 
-<meta name="date" content="2016-09-28" />
+<meta name="date" content="2016-09-29" />
 
 <title>Mapuloh</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Mapuloh</h1>
 <h4 class="author"><em>Arian Barakat, Rebin Hosini, Carles Sans</em></h4>
-<h4 class="date"><em>2016-09-28</em></h4>
+<h4 class="date"><em>2016-09-29</em></h4>
 
 
 
@@ -91,37 +91,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The only input is <strong>latlong</strong>, a character string that includes the latitude and the longitude.</p>
 <p>The function returns a dataframe cointaining Full address names as well as the coordinates:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mapuloh)
-<span class="kw">address_lookup</span>(<span class="st">&quot;41.40450 2.17429&quot;</span>)</code></pre></div>
-<pre><code>## Loading required package: httr</code></pre>
-<pre><code>##                                        Full_address      lat       lng
-## 1  Carrer de la Marina, 255, 08025 Barcelona, Spain 41.40461  2.174146
-## 2           Sagrada Família, 08025 Barcelona, Spain 41.40450  2.174290
-## 3              La Sagrada Familia, Barcelona, Spain 41.40448  2.175728
-## 4                        Eixample, Barcelona, Spain 41.39184  2.164197
-## 5                                  Barcelona, Spain 41.38506  2.173404
-## 6                            08025 Barcelona, Spain 41.40831  2.172042
-## 7                                  Barcelona, Spain 41.38505  2.173325
-## 8                   El Barcelonès, Barcelona, Spain 41.40167  2.125385
-## 9                                  Barcelona, Spain 41.38505  2.173313
-## 10                                 Catalonia, Spain 41.59116  1.520862
-## 11                                            Spain 40.46367 -3.749220</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">address_lookup</span>(<span class="st">&quot;24.83504 118.608&quot;</span>)</code></pre></div>
-<pre><code>##                                                                                                      Full_address
-## 1 Hua Hua Gong Zi （ Feng Sheng Gong Ye Da Sha Xi Bei ）, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
-## 2                                          66 Dong Da Lu, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
-## 3                                                                               Jinjiang, Quanzhou, Fujian, China
-## 4                                                                                         Quanzhou, Fujian, China
-## 5                                                                       Jinjiang, Quanzhou, Fujian, China, 362200
-## 6                                                                                                   Fujian, China
-## 7                                                                                                           China
-##        lat      lng
-## 1 24.83504 118.6080
-## 2 24.83489 118.6084
-## 3 24.78168 118.5524
-## 4 24.87413 118.6757
-## 5 24.81518 118.5815
-## 6 26.10078 119.2951
-## 7 35.86166 104.1954</code></pre>
+<span class="kw">head</span>(<span class="kw">address_lookup</span>(<span class="st">&quot;41.40450 2.17429&quot;</span>), <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>##                                       Full_address      lat      lng
+## 1 Carrer de la Marina, 255, 08025 Barcelona, Spain 41.40461 2.174146
+## 2          Sagrada Família, 08025 Barcelona, Spain 41.40450 2.174290
+## 3             La Sagrada Familia, Barcelona, Spain 41.40448 2.175728
+## 4                       Eixample, Barcelona, Spain 41.39184 2.164197
+## 5                                 Barcelona, Spain 41.38506 2.173404</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(<span class="kw">address_lookup</span>(<span class="st">&quot;24.83504 118.608&quot;</span>), <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>##                                Full_address      lat      lng
+## 3         Jinjiang, Quanzhou, Fujian, China 24.78168 118.5524
+## 4                   Quanzhou, Fujian, China 24.87413 118.6757
+## 5 Jinjiang, Quanzhou, Fujian, China, 362200 24.81518 118.5815
+## 6                             Fujian, China 26.10078 119.2951
+## 7                                     China 35.86166 104.1954</code></pre>
 </div>
 <div id="coord_lookup" class="section level3">
 <h3>coord_lookup</h3>
@@ -129,18 +112,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The input needed is <strong>address</strong>, a character string that includes address components.</p>
 <p>If the address has partial match, different locations with their full names and coordinates will be retrieved as a dataframe:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mapuloh)
-<span class="kw">coord_lookup</span>(<span class="st">&quot;Sagrada Familia&quot;</span>)</code></pre></div>
-<pre><code>##                                                      Full_address
-## 1 Sagrada Família, Belo Horizonte - State of Minas Gerais, Brazil
-## 2                         Sagrada Família, 08025 Barcelona, Spain
-##         lat       lng
-## 1 -19.90635 -43.92438
-## 2  41.40450   2.17429</code></pre>
+<span class="kw">coord_lookup</span>(<span class="st">&quot;Sagrada Familia, Barcelona&quot;</span>)</code></pre></div>
+<pre><code>##                           Full_address      lat      lng
+## 1 La Sagrada Familia, Barcelona, Spain 41.40448 2.175728</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coord_lookup</span>(<span class="st">&quot;Mansion playboy&quot;</span>)</code></pre></div>
 <pre><code>##                                                                                                      Full_address
 ## 1 Hua Hua Gong Zi （ Feng Sheng Gong Ye Da Sha Xi Bei ）, Jinjiang Shi, Quanzhou Shi, Fujian Sheng, China, 362200
 ##        lat     lng
 ## 1 24.83504 118.608</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coord_lookup</span>(<span class="st">&quot;Mapuloh&quot;</span>)</code></pre></div>
+<pre><code>##                                     Full_address       lat      lng
+## 1 Mapulo, Bayan ng Taysan, Batangas, Philippines 13.733747 121.1854
+## 2 Mapulo, Malaybalay City, Bukidnon, Philippines  8.194049 125.2698</code></pre>
 </div>
 </div>
 

@@ -27,10 +27,10 @@ The only input is **latlong**, a character string that includes the latitude and
 
 The function returns a dataframe cointaining Full address names as well as the coordinates:
 
-```{r, fig.show='hold'}
+```{r, fig.show='hold', message=FALSE}
 library(mapuloh)
-address_lookup("41.40450 2.17429")
-address_lookup("24.83504 118.608")
+head(address_lookup("41.40450 2.17429"), n = 5)
+tail(address_lookup("24.83504 118.608"), n = 5)
 
 ```
 
@@ -42,11 +42,13 @@ The input needed is **address**, a character string that includes address compon
 
 If the address has partial match, different locations with their full names and  coordinates will be retrieved as a dataframe:
 
-```{r, fig.show='hold'}
+```{r, fig.show='hold', message=FALSE}
 library(mapuloh)
-coord_lookup("Sagrada Familia")
+coord_lookup("Sagrada Familia, Barcelona")
 
 coord_lookup("Mansion playboy")
+coord_lookup("Mapuloh")
+
 
 ```
 
