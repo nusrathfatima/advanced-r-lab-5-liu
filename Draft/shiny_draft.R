@@ -1,11 +1,13 @@
+suppressMessages(install.packages(c("shiny","leaflet")))
+suppressMessages(devtools::install_github(repo = "arianbarakat/advanced-r-lab-5-liu",
+                                          subdir = "mapuloh"))
 library(shiny)
-source(paste(getwd(),"Draft","api_draft.R",sep = "/"))
+library(mapuloh)
 library(leaflet)
-library(xtable)
 
 
 ui <- fluidPage(
-  titlePanel("Address finder"),
+  titlePanel("Address/Coordinate finder"),
 
   sidebarLayout(
     sidebarPanel(

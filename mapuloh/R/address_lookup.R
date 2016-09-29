@@ -20,7 +20,16 @@ address_lookup <- function(latlong = NULL){
   }
 
   #Creating query and using GET verb
-  latlong <- gsub("[[:space:]]",",",latlong)
+
+  cleaner <- function(x){
+
+    x <- gsub("([[:space:]]|[[:punct:]])\\1+", "\\1", x)
+    x <- gsub("[[:space:]]|[^[:alnum:],.+-]",",",x)
+    x <- gsub("([[:punct:]])\\1+", "\\1", x)
+    return(x)
+  }
+
+  latlong <- cleaner(latlong)
   url <- "https://maps.googleapis.com/maps/api/geocode/json?latlng="
   key <- "&key=AIzaSyCcRPdN_sAcwiovz7EPAq31l5cFIxp-aW4"
   url <- paste0(url,latlong,key)
